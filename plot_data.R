@@ -1,26 +1,30 @@
-#Script to plot the logistic growth data
+### Script to plot the logistic growth data
 
-growth_data <- read.csv("???")
+# load the data
+growth_data <- read.csv("experiment.csv")
 
+# install and load ggplot package
 install.packages("ggplot2")
 library(ggplot2)
 
-ggplot(aes(t,N), data = ???) +
+# plot cell count against time
+ggplot(aes(t,N), data = growth_data) +
   
   geom_point() +
   
-  xlab("t") +
+  xlab("Time (min)") +
   
-  ylab("y") +
+  ylab("N (# cells)") +
   
   theme_bw()
 
-ggplot(aes(t,???), data = growth_data) +
+# plot log-transformed cell count against time
+ggplot(aes(t,N), data = growth_data) +
   
   geom_point() +
   
-  xlab("t") +
+  xlab("Time (min)") +
   
-  ylab("y") +
+  ylab("N (# cells) - log transformed") +
   
   scale_y_continuous(trans='log10')
